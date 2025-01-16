@@ -145,7 +145,7 @@ def start_task(input_email: str):
                 while True:
                     time.sleep(random.uniform(0.5, 1.2))
                     logger.info("获取验证码")
-                    resp = session.get(url=captcha_url.format(captcha_0), headers=dict(header2, **{"Cookie": header2["Cookie"].format(csrftoken)}), verify=False)
+                    resp = session.get(url=captcha_url.format(captcha_0), headers=dict(header2, **{"Cookie": header2["Cookie"].format(csrftoken)}), verify=False); time.sleep(random.uniform(0.5, 2))
                     content = resp.content
                     with open("static/image.jpg", "wb") as f:
                         f.write(content)
@@ -153,7 +153,7 @@ def start_task(input_email: str):
                     if bool(re.match(r'^[a-zA-Z0-9]{4}$', captcha_1)):
                         logger.info(f"识别验证码成功: \033[1;92m{captcha_1}\033[0m")
                     else:
-                        logger.warning("\033[7m验证码识别失败,正在重试...\033[0m"); time.sleep(random.uniform(0.5, 2))
+                        logger.warning("\033[7m验证码识别失败,正在重试...\033[0m")
                         captcha_retry += 1
                         if captcha_retry > 200:
                             logger.error("验证码识别失败次数过多,退出重试.")
@@ -209,7 +209,7 @@ resp = requests.get("https://www.serv00.com/", verify=False)
 response = requests.get('https://ping0.cc/geo', verify=False)
 print(f"=============================\n\033[96m{response.text[:200]}\033[0m=============================")
 match = re.search(r'(\d+)\s*/\s*(\d+)', resp.text).group(0).replace(' ', '') if resp.status_code == 200 and re.search(r'(\d+)\s*/\s*(\d+)', resp.text) else (logger.error('请求失败,请检查代理IP是否封禁!'), exit())
-logger.info(f"\033[1;95m1. 启动任务\033[0m | \033[1;93m2. 编辑配置\033[0m - \033[1;5;32m当前注册量:{match}\033[0m")
+logger.info(f"\033[1;95m1. 启动任务\033[0m | \033[1;93m2. 编辑配置\033[0m | \033[1;5;32m当前注册量:{match}\033[0m")
 while True:
     input_option = input_option_menu()
     if input_option == '1':
