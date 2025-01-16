@@ -220,6 +220,7 @@ while True:
                     config = json.load(f)
                     if config['enable'] == 'y':
                         input_token, input_chatid = config['token'], config['chatid']; enable = True; break
+                    else: break
             except (FileNotFoundError, json.JSONDecodeError): break
         while True:
             input_email = get_valid_input("\033[1;94m请输入邮箱:\033[0m", lambda x: '@' in x, "无效的邮箱,请重新输入.")
