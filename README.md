@@ -14,5 +14,5 @@ curl -O https://raw.githubusercontent.com/XyHK-HUC/Serv00-Reg/main/main.py
 ### 使用 `pip` 安装依赖库
 你可以通过以下指令直接从 GitHub 上安装项目所需的所有依赖库：
 ```bash
-pip install -r https://raw.githubusercontent.com/XyHK-HUC/Serv00-Reg/main/requirements.txt
+pip3 install -r https://raw.githubusercontent.com/XyHK-HUC/Serv00-Reg/main/requirements.txt
 ```
